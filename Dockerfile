@@ -34,6 +34,7 @@ WORKDIR /app
 COPY . .
 
 RUN npm install
+
 RUN npm run build
 
 RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs
