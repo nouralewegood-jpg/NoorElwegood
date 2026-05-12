@@ -1,0 +1,312 @@
+/*
+ * Estilos personalizados para la sección de características
+ * Mejora la apariencia visual de la sección de características de la página principal
+ */
+
+/* Estilización general de la sección de características */
+.features.section {
+    padding: 80px 0;
+    background: linear-gradient(
+        135deg,
+        rgba(64, 71, 112, 0.03) 0%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    position: relative;
+    overflow: hidden;
+}
+
+.features.section::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba(64, 71, 112, 0.05);
+    top: -100px;
+    right: -100px;
+    z-index: 0;
+}
+
+.features.section::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(64, 71, 112, 0.07);
+    bottom: -50px;
+    left: -50px;
+    z-index: 0;
+}
+
+/* Mejora de las pestañas de navegación */
+.features .nav-tabs {
+    display: flex;
+    justify-content: center;
+    border: none;
+    background-color: #f5f7fa;
+    padding: 10px;
+    border-radius: 50px;
+    margin-bottom: 40px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 1;
+}
+
+.features .nav-item {
+    margin: 0 5px;
+}
+
+.features .nav-link {
+    border: none;
+    padding: 15px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    color: #555;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.features .nav-link h4 {
+    font-size: 16px;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.features .nav-link:hover {
+    background-color: rgba(64, 71, 112, 0.1);
+}
+
+.features .nav-link.active {
+    background-color: #404770;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(64, 71, 112, 0.3);
+}
+
+.features .nav-link.active h4 {
+    color: #fff;
+}
+
+/* Contenido de las pestañas */
+.features .tab-content {
+    position: relative;
+    z-index: 1;
+}
+
+.features .tab-pane {
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.features .tab-pane.active.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.features .tab-pane h3 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.features .tab-pane h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 70px;
+    height: 4px;
+    background: #f59c27;
+    border-radius: 2px;
+}
+
+.features .tab-pane p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Lista de características */
+.features .tab-pane ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.features .tab-pane ul li {
+    padding: 12px 0;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.features .tab-pane ul li:last-child {
+    border-bottom: none;
+}
+
+.features .tab-pane ul li i {
+    font-size: 22px;
+    color: #404770;
+    margin-right: 15px;
+}
+
+/* Imágenes de las características */
+.features .tab-pane .img-fluid {
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+}
+
+.features .tab-pane.active.show .img-fluid {
+    animation: feature-image-float 3s ease-in-out infinite;
+}
+
+@keyframes feature-image-float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .features .nav-link {
+        padding: 12px 20px;
+    }
+
+    .features .tab-pane h3 {
+        font-size: 28px;
+        margin-top: 20px;
+    }
+
+    .features .tab-pane .img-fluid {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .features .nav-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 8px;
+    }
+
+    .features .nav-link {
+        padding: 10px 15px;
+        white-space: nowrap;
+    }
+
+    .features .nav-link h4 {
+        font-size: 14px;
+    }
+}
+
+/* Tarjetas de características adicionales */
+.feature-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.feature-card::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: rgba(64, 71, 112, 0.05);
+    border-radius: 50%;
+    top: -50px;
+    right: -50px;
+    z-index: -1;
+    transition: all 0.5s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card:hover::before {
+    width: 150px;
+    height: 150px;
+}
+
+.feature-card .icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(64, 71, 112, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+}
+
+.feature-card .icon i {
+    font-size: 30px;
+    color: #404770;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover .icon {
+    background: #404770;
+}
+
+.feature-card:hover .icon i {
+    color: #fff;
+}
+
+.feature-card h4 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.feature-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Botón de acción en las tarjetas de características */
+.feature-card .btn-feature {
+    display: inline-flex;
+    align-items: center;
+    color: #f59c27;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.feature-card .btn-feature i {
+    margin-left: 5px;
+    transition: all 0.3s ease;
+}
+
+.feature-card .btn-feature:hover {
+    color: #da8513;
+}
+
+.feature-card .btn-feature:hover i {
+    transform: translateX(5px);
+}

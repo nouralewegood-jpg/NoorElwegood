@@ -1,0 +1,404 @@
+/*
+ * Pikkod - Pages CSS
+ * Created: April 28, 2025
+ * Description: CSS styles for static pages that appear to visitors
+ */
+
+/* Custom properties with the new colors */
+:root {
+    --primary-color: #404770;
+    --primary-color-light: rgba(64, 71, 112, 0.1);
+    --primary-color-dark: #353963;
+    --secondary-color: #f59c27;
+    --secondary-color-light: rgba(245, 156, 39, 0.1);
+    --secondary-color-dark: #e08918;
+}
+
+/* Page Title Styles */
+.page-title {
+    background-color: var(--primary-color-dark);
+    color: #fff;
+    padding: 120px 0 60px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.page-title h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.page-title .breadcrumb {
+    display: inline-flex;
+    margin: 0;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    justify-content: center;
+}
+
+.page-title .breadcrumb-item + .breadcrumb-item::before {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.page-title .breadcrumb-item a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+}
+
+.page-title .breadcrumb-item a:hover {
+    color: #fff;
+}
+
+.page-title .breadcrumb-item.active {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Page Content Styles */
+.page-content {
+    padding: 0 0 80px;
+}
+
+.page-content-body {
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+.page-content-body h2 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.page-content-body h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.page-content-body p {
+    margin-bottom: 20px;
+}
+
+.page-content-body img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.page-content-body ul,
+.page-content-body ol {
+    margin-bottom: 20px;
+    padding-right: 20px;
+}
+
+.page-content-body ul li,
+.page-content-body ol li {
+    margin-bottom: 10px;
+}
+
+.page-content-body blockquote {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-right: 4px solid var(--primary-color);
+    margin: 20px 0;
+    font-style: italic;
+    border-radius: 4px;
+}
+
+/* Featured Services Section */
+.featured-services .section-title {
+    margin-bottom: 40px;
+}
+
+.service-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.service-card .icon-box {
+    padding: 30px 25px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.service-card .icon-box i {
+    font-size: 32px;
+    background: var(--primary-color-light);
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    transition: all 0.3s;
+}
+
+.service-card:hover .icon-box i {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.service-card .icon-box h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.service-card .icon-box p {
+    margin-bottom: 20px;
+    color: #6c757d;
+}
+
+.service-card .icon-box .read-more {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: auto;
+    transition: all 0.3s;
+}
+
+.service-card .icon-box .read-more i {
+    width: auto;
+    height: auto;
+    font-size: 16px;
+    background: transparent;
+    color: inherit;
+    margin-right: 8px;
+    margin-bottom: 0;
+}
+
+.service-card .icon-box .read-more:hover {
+    color: var(--primary-color-dark);
+}
+
+.service-card .icon-box .read-more:hover i {
+    transform: translateX(-5px);
+    background: transparent;
+}
+
+/* Service Details Page */
+.service-details {
+    padding-bottom: 80px;
+}
+
+.service-img {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.service-img img {
+    width: 100%;
+    height: auto;
+}
+
+.service-sidebar {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.service-sidebar .service-list {
+    padding: 0;
+    list-style: none;
+}
+
+.service-sidebar .service-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.service-sidebar .service-list li:last-child {
+    border-bottom: none;
+}
+
+.service-sidebar .service-list a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.3s;
+    display: block;
+    display: flex;
+    align-items: center;
+}
+
+.service-sidebar .service-list a:hover,
+.service-sidebar .service-list a.active {
+    color: var(--primary-color);
+}
+
+.service-sidebar .service-list i {
+    margin-left: 8px;
+    color: var(--primary-color);
+}
+
+.cta-box {
+    background: var(--primary-color-gradient);
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 30px;
+    color: #fff;
+    text-align: center;
+}
+
+.cta-box h4 {
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.cta-box p {
+    margin-bottom: 25px;
+}
+
+.cta-box .btn {
+    background: #fff;
+    color: var(--primary-color);
+    border: none;
+    padding: 10px 25px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.cta-box .btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-5px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .page-title {
+        padding: 100px 0 40px;
+    }
+
+    .page-title h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .page-title {
+        padding: 90px 0 30px;
+        margin-bottom: 30px;
+    }
+
+    .page-title h1 {
+        font-size: 1.8rem;
+    }
+
+    .service-sidebar {
+        margin-top: 40px;
+    }
+}
+
+/* RTL Support for Arabic */
+html[dir="rtl"] .service-card .icon-box .read-more i {
+    margin-right: 0;
+    margin-left: 8px;
+}
+
+html[dir="rtl"] .service-sidebar .service-list i {
+    margin-left: 0;
+    margin-right: 8px;
+}
+
+html[dir="rtl"] .page-content-body ul,
+html[dir="rtl"] .page-content-body ol {
+    padding-right: 20px;
+    padding-left: 0;
+}
+
+html[dir="rtl"] .page-content-body blockquote {
+    border-right: 4px solid var(--primary-color);
+    border-left: 0;
+}
+
+/* Blog Page Styles */
+.blog-sidebar {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.blog-sidebar h4 {
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.blog-sidebar .categories {
+    padding: 0;
+    list-style: none;
+}
+
+.blog-sidebar .categories li {
+    padding: 8px 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.blog-sidebar .categories li:last-child {
+    border-bottom: none;
+}
+
+.blog-sidebar .categories a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.blog-sidebar .categories a:hover {
+    color: var(--primary-color);
+}
+
+.blog-sidebar .categories .badge {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.search-form {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.search-form .form-control {
+    height: 50px;
+    border-radius: 25px;
+    padding-left: 20px;
+    padding-right: 50px;
+    border: 1px solid #dee2e6;
+}
+
+.search-form .btn-search {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,621 @@
+/* تنسيق عام للصفحة */
+.service-details {
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-details::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(
+        circle,
+        rgba(13, 110, 253, 0.1) 0%,
+        rgba(255, 255, 255, 0) 70%
+    );
+    border-radius: 50%;
+    top: -100px;
+    right: -100px;
+    z-index: -1;
+}
+
+.service-details::after {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(
+        circle,
+        rgba(13, 110, 253, 0.05) 0%,
+        rgba(255, 255, 255, 0) 70%
+    );
+    border-radius: 50%;
+    bottom: -50px;
+    left: -50px;
+    z-index: -1;
+}
+
+/* تنسيق العنوان الرئيسي */
+.service-details-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.service-icon {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #404770, #0099ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 10px 25px rgba(13, 110, 253, 0.25);
+    transition: all 0.5s ease;
+}
+
+.service-icon i {
+    font-size: 36px;
+    color: white;
+}
+
+.service-details-header:hover .service-icon {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(13, 110, 253, 0.3);
+}
+
+.service-details-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.service-details-header h1::after {
+    content: "";
+    position: absolute;
+    width: 70%;
+    height: 4px;
+    background: linear-gradient(90deg, #404770, transparent);
+    bottom: -10px;
+    left: 15%;
+    border-radius: 2px;
+}
+
+/* تنسيق صورة الخدمة */
+.service-details-image {
+    margin-bottom: 2.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.service-details-image img {
+    width: 100%;
+    transition: transform 1s ease;
+    transform-origin: center;
+}
+
+.service-details-image:hover img {
+    transform: scale(1.03);
+}
+
+.service-details-image::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0) 30%
+    );
+    pointer-events: none;
+}
+
+/* إضافة تأثير الإبراز للصورة */
+.service-details-image.highlight {
+    box-shadow: 0 15px 35px rgba(13, 110, 253, 0.25);
+}
+
+.service-details-image.highlight::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid rgba(13, 110, 253, 0.3);
+    border-radius: 12px;
+    animation: pulse 1.5s infinite;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+        transform: scale(0.98);
+    }
+
+    50% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0.6;
+        transform: scale(0.98);
+    }
+}
+
+/* تنسيق المحتوى */
+.service-details-content {
+    margin-bottom: 2.5rem;
+}
+
+.service-details-content h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid #f0f0f0;
+    position: relative;
+}
+
+.service-details-content h2::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    width: 80px;
+    height: 2px;
+    background: #404770;
+}
+
+.service-details-content p {
+    color: #666;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+}
+
+/* تنسيق ميزات الخدمة */
+.service-features {
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+}
+
+.service-features:hover {
+    box-shadow: 0 10px 30px rgba(13, 110, 253, 0.1);
+    transform: translateY(-5px);
+}
+
+.service-features h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 0.8rem;
+}
+
+.service-features h3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    height: 3px;
+    background: #404770;
+    border-radius: 1.5px;
+}
+
+.features-list {
+    padding-left: 0;
+    list-style: none;
+}
+
+.features-list li {
+    padding: 8px 0 8px 30px;
+    position: relative;
+    color: #555;
+    transition: all 0.3s ease;
+}
+
+.features-list li:before {
+    content: "\f00c";
+    font-family: "Bootstrap-icons";
+    color: #404770;
+    position: absolute;
+    left: 0;
+    top: 9px;
+}
+
+.features-list li:hover {
+    transform: translateX(5px);
+    color: #333;
+}
+
+.features-list li a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s;
+    display: block;
+}
+
+.features-list li a:hover {
+    color: #404770;
+}
+
+/* تنسيق الشريط الجانبي */
+.sidebar {
+    position: sticky;
+    top: 100px;
+}
+
+/* تنسيق وسائل التواصل الاجتماعي */
+.social-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 5px;
+    color: #fff;
+    font-size: 18px;
+    transition: all 0.4s ease;
+    background-color: #404770;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.social-links a.facebook {
+    background-color: #4267b2;
+}
+
+.social-links a.twitter {
+    background-color: #1da1f2;
+}
+
+.social-links a.instagram {
+    background: linear-gradient(
+        45deg,
+        #f09433 0%,
+        #e6683c 25%,
+        #dc2743 50%,
+        #cc2366 75%,
+        #bc1888 100%
+    );
+}
+
+.social-links a.linkedin {
+    background-color: #0077b5;
+}
+
+/* تنسيق قسم الدعوة للعمل */
+.cta-section {
+    background: linear-gradient(135deg, #404770, #3a7bd5);
+    padding: 60px 0;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    z-index: 1; /* ضمان أن القسم يظهر فوق العناصر الأخرى */
+    opacity: 1 !important; /* التأكد من أن القسم ظاهر */
+    visibility: visible !important; /* التأكد من أن القسم مرئي */
+}
+
+.cta-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,5 C60,20 40,20 0,5 Z" fill="white" fill-opacity="0.05"/></svg>');
+    background-size: 100% 100px;
+    z-index: -1; /* ضمان أن الخلفية تظهر خلف المحتوى */
+}
+
+.cta-section h2 {
+    color: #e0efffff;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    opacity: 1 !important;
+}
+
+.cta-section p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 1.5rem;
+    opacity: 1 !important;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: white;
+    color: #404770;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    color: #0056b3;
+}
+
+/* تنسيق خدمات أخرى */
+.other-services {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+.other-services h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    color: #333;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.other-services h2::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background: #404770;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.other-service-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.other-service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.other-service-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #404770, #0099ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    transition: all 0.5s ease;
+}
+
+.other-service-card:hover .other-service-icon {
+    transform: rotateY(180deg);
+}
+
+.other-service-icon i {
+    font-size: 28px;
+    color: white;
+    transition: all 0.5s ease;
+}
+
+.other-service-content {
+    padding: 0 20px 20px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.other-service-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.other-service-content p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.read-more {
+    display: inline-block;
+    padding: 8px 0;
+    color: #404770;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.read-more:hover {
+    color: #0056b3;
+    letter-spacing: 1px;
+}
+
+.read-more i {
+    transition: transform 0.3s ease;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.read-more:hover i {
+    transform: translateX(5px);
+}
+
+/* تنسيق مسار التنقل */
+.breadcrumbs {
+    padding: 20px 0;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #eee;
+}
+
+.breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    direction: rtl;
+}
+
+.breadcrumbs ol li {
+    display: inline-block;
+    position: relative;
+    padding-right: 20px;
+    margin-right: 10px;
+}
+
+.breadcrumbs ol li:not(:last-child)::after {
+    content: "/";
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #999;
+}
+
+.breadcrumbs ol li a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumbs ol li a:hover {
+    color: #404770;
+}
+
+.breadcrumbs ol li:last-child {
+    color: #404770;
+    font-weight: 600;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+/* تأثيرات حركية للأقسام عند التمرير */
+[data-aos] {
+    opacity: 0;
+    transition-duration: 1s;
+    transition-property: opacity, transform;
+}
+
+[data-aos="fade-up"] {
+    transform: translateY(50px);
+}
+
+[data-aos="zoom-in"] {
+    transform: scale(0.9);
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* تأثيرات إضافية للتفاعل */
+.fade-in-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* تأثيرات للأزرار */
+.btn-primary {
+    transition: all 0.3s ease;
+    border-radius: 30px;
+    border: none;
+    background: linear-gradient(to right, #404770, #0099ff);
+    padding: 10px 20px;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(13, 110, 253, 0.3);
+    background: linear-gradient(to right, #0056b3, #404770);
+}
+
+/* تأثيرات للاقونات المتحركة */
+.animate__animated {
+    animation-duration: 1s;
+}
+
+.animate__tada {
+    animation-name: tada;
+}
+
+@keyframes tada {
+    from {
+        transform: scale3d(1, 1, 1);
+    }
+
+    10%,
+    20% {
+        transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    }
+
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    }
+
+    40%,
+    60%,
+    80% {
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    }
+
+    to {
+        transform: scale3d(1, 1, 1);
+    }
+}

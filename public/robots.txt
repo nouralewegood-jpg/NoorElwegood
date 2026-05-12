@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Allow all bots to access the entire site
+Disallow: /admin/
+Disallow: /login
+Disallow: /register
+Disallow: /password/
+
+# Sitemap location
+Sitemap: https://www.pickod.com/sitemap.xml

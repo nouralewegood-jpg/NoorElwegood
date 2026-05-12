@@ -1,0 +1,905 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+li,
+input,
+button,
+textarea,
+select {
+    font-family: "Cairo", sans-serif !important;
+}
+
+.me-auto {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+}
+
+.me-xl-0 {
+    margin-left: 0 !important;
+}
+
+.me-sm-2 {
+    margin-left: 0.5rem !important;
+    margin-right: 0 !important;
+}
+
+.me-0 {
+    margin-left: 0 !important;
+}
+
+.ms-auto {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+}
+
+.me-1,
+.me-2,
+.me-3,
+.me-4,
+.me-5 {
+    margin-left: 0.25rem !important;
+    margin-right: 0 !important;
+}
+
+.bi-arrow-right:before {
+    content: "\f12f";
+    /* Bootstrap icon for arrow left */
+}
+
+/* تنسيق أيقونات التواصل الاجتماعي المُحسنة */
+.social-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    color: #fff;
+    margin: 0 5px;
+    font-size: 18px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border: 2px solid transparent;
+}
+
+.social-contact-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(-100%) rotate(45deg);
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: -1;
+}
+
+.social-contact-btn:hover::before {
+    transform: translateX(100%) rotate(45deg);
+}
+
+.social-contact-btn:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+.social-contact-btn:active {
+    transform: translateY(0) scale(0.95);
+}
+
+/* تنسيق مختلف لكل نوع من أزرار التواصل */
+.social-contact-btn .bi-telephone-fill {
+    font-size: 20px;
+}
+
+.social-contact-btn .bi-envelope-fill {
+    font-size: 20px;
+}
+
+/* الأيقونات مع ألوانها المميزة */
+.social-contact-btn.phone-btn {
+    background: linear-gradient(135deg, #404770 0%, #353963 100%);
+    border-color: #404770;
+}
+
+.social-contact-btn.email-btn {
+    background: linear-gradient(135deg, #d44638 0%, #b23121 100%);
+    border-color: #d44638;
+}
+
+.social-contact-btn.whatsapp-btn {
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    border-color: #25d366;
+}
+
+.social-contact-btn.facebook-btn {
+    background: linear-gradient(135deg, #404770 0%, #353963 100%);
+    border-color: #404770;
+}
+
+.social-contact-btn.twitter-btn {
+    background: linear-gradient(135deg, #1da1f2 0%, #0d8ee0 100%);
+    border-color: #1da1f2;
+}
+
+.social-contact-btn.instagram-btn {
+    background: linear-gradient(
+        45deg,
+        #f09433 0%,
+        #e6683c 25%,
+        #dc2743 50%,
+        #cc2366 75%,
+        #bc1888 100%
+    );
+    border-color: #e1306c;
+}
+
+.social-contact-btn.linkedin-btn {
+    background: linear-gradient(135deg, #0077b5 0%, #00669c 100%);
+    border-color: #0077b5;
+}
+
+/* تأثيرات إضافية عند التحويم */
+.social-contact-btn:hover {
+    color: white;
+    border-color: #fff;
+}
+
+/* تنسيق الأيقونات في التذييل */
+.footer .social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 18px;
+    margin-right: 10px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border: 2px solid transparent;
+    margin-bottom: 10px;
+}
+
+.footer .social-links a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(-100%) rotate(45deg);
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: -1;
+}
+
+.footer .social-links a:hover::before {
+    transform: translateX(100%) rotate(45deg);
+}
+
+.footer .social-links a:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    border-color: #fff;
+}
+
+.footer .social-links a.twitter-link {
+    background: linear-gradient(135deg, #1da1f2 0%, #0d8ee0 100%);
+    border: 2px solid #1da1f2;
+}
+
+.footer .social-links a.facebook-link {
+    background: linear-gradient(135deg, #404770 0%, #353963 100%);
+    border: 2px solid #404770;
+}
+
+.footer .social-links a.instagram-link {
+    background: linear-gradient(
+        45deg,
+        #f09433 0%,
+        #e6683c 25%,
+        #dc2743 50%,
+        #cc2366 75%,
+        #bc1888 100%
+    );
+    border: 2px solid #e1306c;
+}
+
+.footer .social-links a.linkedin-link {
+    background: linear-gradient(135deg, #0077b5 0%, #00669c 100%);
+    border: 2px solid #0077b5;
+}
+
+.footer .social-links a.youtube-link {
+    background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+    border: 2px solid #ff0000;
+}
+
+.footer .social-links a.whatsapp-link {
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    border: 2px solid #25d366;
+}
+
+/* تعريف موحد لتأثير النبض للأزرار العائمة */
+@keyframes pulse-animation {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 128, 0, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(0, 128, 0, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 128, 0, 0);
+    }
+}
+
+/* إزالة تأثير النبض العادي من الأيقونات الثابتة */
+.social-contact-btn:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* تنسيقات الأزرار العائمة */
+.floating-contact-buttons {
+    position: fixed;
+    bottom: 30px;
+    right: 15px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.floating-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    animation: pulse-animation 2s infinite;
+}
+
+.floating-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    animation: none;
+}
+
+.floating-button i {
+    font-size: 1.8rem;
+    color: white;
+}
+
+.whatsapp-btn {
+    background-color: #25d366;
+}
+
+.phone-btn {
+    background-color: #404770;
+}
+
+.phone-btn a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* تنسيقات النافذة المنبثقة لواتساب */
+.whatsapp-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.whatsapp-modal-content {
+    background-color: white;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.whatsapp-modal-header {
+    background-color: #25d366;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.whatsapp-modal-header h5 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.whatsapp-close {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.whatsapp-modal-body {
+    padding: 20px;
+}
+
+/* تنسيق زر التمرير للأعلى لجعله على الجانب الأيسر */
+.scroll-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    left: 15px;
+    bottom: 30px;
+    z-index: 996;
+    background: #404770;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    transition: all 0.4s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-top i {
+    font-size: 24px;
+    color: #fff;
+    line-height: 0;
+}
+
+.scroll-top:hover {
+    background: #353963;
+    color: #fff;
+}
+
+.scroll-top.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+@keyframes pulse-animation {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 123, 255, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+    }
+}
+
+/* تنسيقات محسّنة لقسم الهيرو - Hero Section */
+#hero {
+    position: relative;
+    overflow: hidden;
+    padding-top: 180px;
+    padding-bottom: 120px;
+    background: linear-gradient(
+        135deg,
+        rgba(14, 162, 189, 0.05) 50%,
+        rgba(14, 162, 189, 0.08) 25%,
+        transparent 50%
+    );
+}
+
+#hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at 90% 10%,
+        rgba(14, 162, 189, 0.08),
+        transparent 40%
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+#hero::after {
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at 0% 0%,
+        rgba(14, 162, 189, 0.03),
+        transparent 40%
+    );
+    z-index: 0;
+}
+
+#hero .hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+#hero .hero-content h1 {
+    font-size: 3.75rem;
+    font-weight: 800;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #353963, #404770);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInUp 1s ease-out;
+}
+
+#hero .hero-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+#hero .hero-content .accent-text {
+    color: #404770;
+    font-weight: 700;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+#hero .hero-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out 0.4s both;
+    max-width: 90%;
+}
+
+#hero .company-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background-color: rgba(64, 71, 112, 0.08);
+    border-radius: 50px;
+    color: #404770;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out;
+    box-shadow: 0 5px 15px rgba(64, 71, 112, 0.1);
+    border: 1px solid rgba(64, 71, 112, 0.2);
+    transition: all 0.3s ease;
+}
+
+#hero .company-badge:hover {
+    background-color: rgba(64, 71, 112, 0.15);
+    transform: translateY(-3px);
+}
+
+#hero .company-badge i {
+    font-size: 1.5rem;
+    margin-right: 8px;
+    animation: spin 10s linear infinite;
+}
+
+#hero .hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+#hero .btn-primary {
+    padding: 0.85rem 2.5rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-radius: 50px;
+    background: #404770;
+    border-color: #404770;
+    box-shadow: 0 10px 25px rgba(14, 162, 189, 0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#hero .btn-primary::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-100%) rotate(45deg);
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: -1;
+}
+
+#hero .btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(14, 162, 189, 0.4);
+    background: #353963;
+}
+
+#hero .btn-primary:hover::after {
+    transform: translateX(100%) rotate(45deg);
+}
+
+#hero .btn-outline-primary {
+    padding: 0.85rem 2.5rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-radius: 50px;
+    border: 2px solid #404770;
+    color: #404770;
+    background: transparent;
+    box-shadow: 0 5px 15px rgba(14, 162, 189, 0.1);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#hero .btn-outline-primary:hover {
+    background-color: rgba(245, 156, 39, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(245, 156, 39, 0.15);
+    color: #f59c27;
+}
+
+#hero .btn-outline-primary i,
+#hero .btn-primary i {
+    margin-right: 8px;
+    font-size: 1.1rem;
+    vertical-align: middle;
+}
+
+#hero .hero-image {
+    position: relative;
+    animation: fadeIn 1s ease-out 0.6s both;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+#hero .hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.12);
+    transform: rotateY(-5deg);
+    transition: all 0.5s ease;
+    animation: float 6s ease-in-out infinite;
+}
+
+#hero .hero-image:hover img {
+    transform: rotateY(0);
+}
+
+#hero .customers-badge {
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+    background-color: #fff;
+    padding: 1.25rem;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    animation: float-badge 5s ease-in-out infinite;
+    transform: translateZ(50px);
+    border: 1px solid rgba(14, 162, 189, 0.1);
+}
+
+#hero .customer-avatars {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+#hero .avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    margin-left: -15px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+#hero .avatar:first-child {
+    margin-left: 0;
+}
+
+#hero .avatar:hover {
+    transform: translateY(-5px) scale(1.1);
+    z-index: 10;
+}
+
+#hero .avatar.more {
+    background-color: #404770;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+#hero .customers-badge p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+
+#hero .stats-row {
+    position: relative;
+    z-index: 2;
+    margin-top: 5rem;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+    padding: 1rem 0.5rem;
+    transform: translateY(-30px);
+    border: 1px solid rgba(14, 162, 189, 0.1);
+    animation: fadeInUp 1s ease-out 0.7s both;
+}
+
+#hero .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.75rem;
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    height: 100%;
+}
+
+#hero .stat-item:hover {
+    background-color: rgba(14, 162, 189, 0.03);
+    transform: translateY(-5px);
+}
+
+#hero .stat-item .stat-icon {
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(14, 162, 189, 0.08);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(14, 162, 189, 0.05);
+}
+
+#hero .stat-item .stat-icon i {
+    font-size: 1.75rem;
+    color: #404770;
+    transition: all 0.3s ease;
+}
+
+#hero .stat-item:hover .stat-icon {
+    background-color: #404770;
+    box-shadow: 0 15px 35px rgba(14, 162, 189, 0.2);
+}
+
+#hero .stat-item:hover .stat-icon i {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+#hero .stat-item .stat-content {
+    flex-grow: 1;
+}
+
+#hero .stat-item .stat-content h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, #353963, #404770);
+    display: inline-block;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#hero .stat-item .stat-content p {
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+}
+
+/* تحريكات للقسم */
+@keyframes float {
+    0% {
+        transform: rotateY(-5deg) translateY(0);
+    }
+    50% {
+        transform: rotateY(-2deg) translateY(-15px);
+    }
+    100% {
+        transform: rotateY(-5deg) translateY(0);
+    }
+}
+
+@keyframes float-badge {
+    0% {
+        transform: translateY(0) translateZ(50px);
+    }
+    50% {
+        transform: translateY(-15px) translateZ(50px);
+    }
+    100% {
+        transform: translateY(0) translateZ(50px);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* تكييفات للشاشات المختلفة */
+@media (max-width: 1199.98px) {
+    #hero {
+        padding-top: 150px;
+        padding-bottom: 100px;
+    }
+
+    #hero .hero-content h1 {
+        font-size: 3.25rem;
+    }
+
+    #hero .hero-content h2 {
+        font-size: 2.25rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    #hero {
+        padding-top: 130px;
+        padding-bottom: 80px;
+        text-align: center;
+    }
+
+    #hero .hero-content {
+        margin-bottom: 3rem;
+    }
+
+    #hero .hero-content h1 {
+        font-size: 2.75rem;
+    }
+
+    #hero .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    #hero .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #hero .hero-buttons {
+        justify-content: center;
+    }
+
+    #hero .stats-row {
+        margin-top: 3rem;
+        transform: translateY(0);
+    }
+
+    #hero .customers-badge {
+        position: static;
+        margin: 2rem auto;
+    }
+}
+
+@media (max-width: 767.98px) {
+    #hero {
+        padding-top: 110px;
+        padding-bottom: 60px;
+    }
+
+    #hero .hero-content h1 {
+        font-size: 2.25rem;
+    }
+
+    #hero .hero-content h2 {
+        font-size: 1.75rem;
+    }
+
+    #hero .company-badge {
+        padding: 0.5rem 1.25rem;
+    }
+
+    #hero .stat-item {
+        padding: 1.25rem;
+    }
+
+    #hero .stat-item .stat-icon {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    #hero .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    #hero .hero-content h2 {
+        font-size: 1.5rem;
+    }
+
+    #hero .hero-content p {
+        font-size: 1rem;
+    }
+
+    #hero .btn-primary,
+    #hero .btn-outline-primary {
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 0.75rem 1.5rem;
+    }
+
+    #hero .stat-item {
+        text-align: center;
+        flex-direction: column;
+        padding: 1rem 0.5rem;
+    }
+
+    #hero .stat-item .stat-icon {
+        margin-bottom: 1rem;
+    }
+}
