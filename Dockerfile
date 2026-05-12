@@ -1,3 +1,4 @@
+```dockerfile
 FROM php:8.2-cli
 
 RUN apt-get update && apt-get install -y \
@@ -42,10 +43,12 @@ RUN npm run build || true
 
 RUN chmod -R 775 storage bootstrap/cache database
 
+RUN php artisan config:clear || true
+RUN php artisan cache:clear || true
 RUN php artisan key:generate --force || true
-
 RUN php artisan migrate --force || true
 
 EXPOSE 10000
 
-CMD php artisan serve --host=0.0.0.0 --port=$PORT
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=10000"]
+```
