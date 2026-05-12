@@ -1,9 +1,9 @@
 <?php
+
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Schema\Builder;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
                 DB::getPdo()->exec("SET NAMES utf8mb4");
             }
         } catch (\Exception $e) {
-            // لو DB مش متاح، متوقفش الـ app
+            //
         }
 
         Paginator::useBootstrap();
