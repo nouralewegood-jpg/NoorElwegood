@@ -32,13 +32,13 @@ WORKDIR /var/www/html
 
 COPY . .
 
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install --no-dev --optimize-autoloader --no-scripts
 
 RUN npm install
 RUN npm run build
 
 RUN cp .env.example .env || true
-RUN php artisan key:generate || true
+
 RUN chmod -R 775 storage bootstrap/cache
 
 EXPOSE 8000
