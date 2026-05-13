@@ -1,72 +1,70 @@
-FROM php:8.2-cli
+# ─── Stage 1: Build ─────────────────────────────────────────────
+FROM php:8.2-fpm-alpine AS builder
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    git \
+WORKDIR /var/www/html
+
+# Install dependencies
+RUN apk add --no-cache \
     curl \
-    unzip \
-    zip \
     libpng-dev \
-    libjpeg62-turbo-dev \
-    libfreetype6-dev \
-    libonig-dev \
-    libxml2-dev \
     libzip-dev \
-    libsqlite3-dev \
-    ca-certificates \
-    gnupg \
-    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
-    && apt-get install -y nodejs
+    zip \
+    unzip \
+    sqlite \
+    sqlite-dev \
+    nodejs \
+    npm
 
 # Install PHP extensions
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install \
-    pdo \
-    pdo_sqlite \
-    mbstring \
-    exif \
-    pcntl \
-    bcmath \
-    gd \
-    zip
+RUN docker-php-ext-install pdo pdo_sqlite gd zip
 
-# Get latest Composer
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
-
-# Set working directory
-WORKDIR /var/www/html
+# Install Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Copy project files
 COPY . .
 
-# Create SQLite database file and set permissions early
+# Install PHP dependencies (production only)
+RUN composer install --no-dev --optimize-autoloader --no-interaction
+
+# Install & build frontend assets
+RUN npm install && npm run build
+
+# ─── Laravel Build Commands (تنفذ مرة واحدة فقط) ─────────────
+RUN php artisan config:cache && \
+    php artisan route:cache && \
+    php artisan view:cache
+
+# ─── Stage 2: Runtime ──────────────────────────────────────────
+FROM php:8.2-cli-alpine
+
+WORKDIR /var/www/html
+
+# Install runtime dependencies only
+RUN apk add --no-cache \
+    libpng \
+    libzip \
+    sqlite \
+    curl
+
+# Copy from builder
+COPY --from=builder /var/www/html /var/www/html
+
+# Set permissions
+RUN chmod -R 775 storage bootstrap/cache && \
+    chown -R www-data:www-data storage bootstrap/cache
+
+# SQLite database directory
 RUN mkdir -p /var/www/html/database && \
     touch /var/www/html/database/database.sqlite && \
-    chown -R www-data:www-data /var/www/html/database && \
-    chmod -R 775 /var/www/html/database
+    chmod 664 /var/www/html/database/database.sqlite
 
-# Install dependencies
-RUN composer install --no-dev --optimize-autoloader
-
-# Build assets
-RUN npm install && npm run build || true
-
-# Set permissions for storage and cache
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
-RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
-
-# Set environment variables for production
 ENV APP_ENV=production
 ENV APP_DEBUG=false
-ENV LOG_CHANNEL=stderr
 ENV DB_CONNECTION=sqlite
 ENV DB_DATABASE=/var/www/html/database/database.sqlite
 
 EXPOSE 10000
 
-CMD php artisan migrate --force && \
-    php artisan optimize:clear && \
-    php artisan config:cache && \
-    php artisan route:cache && \
-    php artisan view:cache && \
-    php artisan serve --host=0.0.0.0 --port=${PORT:-10000}
+# Runtime: فقط serve
+CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT:-10000}
