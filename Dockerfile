@@ -64,7 +64,6 @@ ENV DB_DATABASE=/var/www/html/database/database.sqlite
 
 EXPOSE 10000
 
-# Start command: Ensure key is generated, then migrate and seed, then serve
 CMD php artisan migrate --force && \
     php artisan optimize:clear && \
     php artisan config:cache && \
