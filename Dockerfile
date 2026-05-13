@@ -67,5 +67,5 @@ EXPOSE 10000
 # Start command: Ensure key is generated, then migrate and seed, then serve
 CMD php artisan key:generate --force && \
     php artisan migrate --force && \
-    php artisan db:seed --force && \
+    php artisan db:seed --force && php artisan analytics:fix && \
     php artisan serve --host=0.0.0.0 --port=${PORT:-10000}
