@@ -24,21 +24,19 @@ COPY . .
 
 # Install PHP dependencies with error handling
 RUN composer install --no-dev --optimize-autoloader --no-interaction || \
-    (echo "Composer installation failed" && exit 1)
+    (echo "❌ Composer installation failed" >&2 && exit 1)
 
 # Install & build frontend assets with error checking
-RUN npm install || (echo "NPM install failed" && exit 1) && \
-    npm run build || (echo "NPM build failed - continuing with default assets" && true)
+RUN npm install || (echo "❌ NPM install failed" >&2 && exit 1) && \
+    npm run build 2>/dev/null || (echo "⚠️ NPM build skipped (non-critical)" && true)
 
-# Set permissions
+# Set permissions and verify directories
 RUN mkdir -p storage bootstrap/cache && \
     chmod -R 775 storage bootstrap/cache && \
     chown -R www-data:www-data storage bootstrap/cache && \
-    chmod -R 755 storage bootstrap
-
-# Verify critical directories exist
-RUN test -d storage && test -d bootstrap/cache || \
-    (echo "Critical directories not created" && exit 1)
+    chmod -R 755 storage bootstrap && \
+    test -d storage || (echo "❌ storage directory not created" >&2 && exit 1) && \
+    test -d bootstrap/cache || (echo "❌ bootstrap/cache directory not created" >&2 && exit 1)
 
 ENV APP_ENV=production
 ENV APP_DEBUG=false
@@ -55,10 +53,14 @@ EXPOSE 10000
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:10000/health || exit 1
+    CMD curl -f http://localhost:10000/health 2>/dev/null || exit 1
 
-# Runtime: cache config, migrate, and serve with error handling
-CMD php artisan config:cache || (echo "Config cache failed" && exit 1) && \
-    php artisan migrate --force || (echo "Database migration failed" && exit 1) && \
+# Runtime: cache config, migrate, and serve with comprehensive error handling
+CMD set -e && \
+    echo "🔄 Caching configuration..." && \
+    php artisan config:cache || (echo "❌ Config cache failed" >&2 && exit 1) && \
+    echo "🔄 Running database migrations..." && \
+    php artisan migrate --force || (echo "❌ Database migration failed" >&2 && exit 1) && \
+    echo "✅ Starting application server..." && \
     php artisan serve --host=0.0.0.0 --port=${PORT:-10000} || \
-    (echo "Application failed to start" && exit 1)
+    (echo "❌ Application failed to start" >&2 && exit 1)
