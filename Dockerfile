@@ -57,14 +57,15 @@ RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Set environment variables for production
 ENV APP_ENV=production
-ENV APP_DEBUG=true
+ENV APP_DEBUG=false
 ENV LOG_CHANNEL=stderr
 ENV DB_CONNECTION=sqlite
 ENV DB_DATABASE=/var/www/html/database/database.sqlite
 
 EXPOSE 10000
 
-# Start command: Ensure key is generated if missing, then migrate and serve
+# Start command: Ensure key is generated, then migrate and seed, then serve
 CMD php artisan key:generate --force && \
     php artisan migrate --force && \
+    php artisan db:seed --force && \
     php artisan serve --host=0.0.0.0 --port=${PORT:-10000}
